@@ -14,6 +14,7 @@ const htmlmin = require('gulp-htmlmin');
 const imagemin = require('gulp-imagemin');
 const uglify = require('gulp-uglify');
 const pipeline = require('readable-stream').pipeline;
+const embedSvg = require('gulp-embed-svg');
 
 const server = browserSync.create();
 
@@ -47,10 +48,10 @@ const getHtmlName = (f) => f.split('/html/').pop().slice(0, -5);
 
 
 const pageOrder = () => Object.assign({}, ...glob.sync(htmlGlob)
-    .map((f) => {
+    .map((f, i) => {
         const html = fs.readFileSync(f, 'utf-8');
         const match = html.match(/<!--\sorder:\s?(\d+)/)
-        const order = match ? parseInt(match[1].trim()) : 0;
+        const order = match ? parseInt(match[1].trim()) : glob.sync(htmlGlob).length + i;
         return {[getHtmlName(f)]: order};
     }));
 
@@ -114,6 +115,17 @@ const optimizeCSS = gulp.series(combineCSS, minifyCSS)
 const inline = () => {
     return gulp.src('./dist/**/*.html')
         .pipe(inlinesource())
+        .pipe(embedSvg({
+            root: 'dist',
+        }))
+        .pipe(gulp.dest('./dist'));
+}
+
+const inlineSVG = () => {
+    return gulp.src('./dist/**/*.html')
+        .pipe(embedSvg({
+            root: 'dist',
+        }))
         .pipe(gulp.dest('./dist'));
 }
 
@@ -126,9 +138,14 @@ const minifyHTML = () => {
         .pipe(gulp.dest('dist'));
 };
 
-const images = () => {
+const optimizeImages = () => {
     return gulp.src('src/img/*')
         .pipe(imagemin())
+        .pipe(gulp.dest('dist/img'))
+};
+
+const images = () => {
+    return gulp.src('src/img/*')
         .pipe(gulp.dest('dist/img'))
 };
 
@@ -139,12 +156,12 @@ const scripts = () => {
 };
 
 
-const optimize = gulp.series(optimizeCSS, scripts, inline, minifyHTML, deleteCSS, images);
+const optimize = gulp.series(optimizeImages, inlineSVG, optimizeCSS, scripts, inline, minifyHTML, deleteCSS);
 
 const clean = () => del(['dist']);
 
-const watch = () => gulp.watch('./src/**/*.*', gulp.series(sass, html, reload));
+const watch = () => gulp.watch('./src/**/*.*', gulp.series(images, sass, html, reload));
 
 
-exports.default = gulp.series(clean, sass, html, serve, watch);
+exports.default = gulp.series(clean, sass, images, html, serve, watch);
 exports.build = gulp.series(clean, sass, html, optimize);
