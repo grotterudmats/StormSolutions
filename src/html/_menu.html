@@ -1,7 +1,7 @@
 <ul id="menu">
-  {% for page, url in pages %}
+  {% for page, url, title in pages %}
   <li {% if page == path %} class="active" {% endif %}>
-    <a href="/{{url}}">{{page}}</a>
+    <a href="/{{url}}">{{title}}</a>
   </li>
   {% endfor %}
 </ul>

@@ -49,13 +49,21 @@ const getHtmlName = (f) => f.split('/html/').pop().slice(0, -5);
 const pageOrder = () => Object.assign({}, ...glob.sync(htmlGlob)
     .map((f) => {
         const html = fs.readFileSync(f, 'utf-8');
-        const match = html.match(/order:\s?(\d+)/)
-        const order = match ? match[1] : 0;
+        const match = html.match(/<!--\sorder:\s?(\d+)/)
+        const order = match ? parseInt(match[1].trim()) : 0;
         return {[getHtmlName(f)]: order};
     }));
 
 const pages = () => glob.sync(htmlGlob)
-    .map(f => [getHtmlName(f), getHtmlName(f) === 'index' ? '' : getHtmlName(f)])
+    .map((f) => {
+        const name = getHtmlName(f);
+        const url = name === 'index' ? '' : name;
+
+        const html = fs.readFileSync(f, 'utf-8');
+        const match = html.match(/<!--\stitle:\s?([^-]*)/)
+        const title = match ? match[1].trim() : name;
+        return [name, url, title]
+    })
     .sort(function(a, b) {
         const order = pageOrder();
         return order[a[0]] - order[b[0]];
