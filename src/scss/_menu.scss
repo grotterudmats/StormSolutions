@@ -1,9 +1,15 @@
 ul#menu {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
     li {
+        margin: 1em;
         a, a:visited {
             color: $text;
+            text-decoration: none;
+            transition: color 0.2s;
         }
-        &.active a {
+        &.active a, a:hover {
             color: $primary;
         }
     }
