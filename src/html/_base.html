@@ -1,0 +1,33 @@
+<html>
+  <head>
+    {% block head %}
+
+    <title>
+      {% block title %}
+        Storm Solutions
+      {% endblock %}
+    </title>
+    
+    <!-- build:css css/{{path}}.css inline -->
+    {% block stylesheets %}
+
+    <link rel="stylesheet" href="/css/base.css" />
+
+    {% if hasCSS %}
+    <link rel="stylesheet" href="/css/{{path}}.css" />
+    {% endif %}
+
+    {% endblock %}
+    <!-- endbuild -->
+
+    {% endblock %}
+  </head>
+  <body>
+    {% include "_menu.html" %}
+    {% block body %}
+    <h1>Storm Solutions!</h1>
+    {% endblock %}
+    {% block scripts %}
+    {% endblock %}
+  </body>
+</html>

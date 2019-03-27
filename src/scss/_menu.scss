@@ -1,0 +1,10 @@
+ul#menu {
+    li {
+        a, a:visited {
+            color: $text;
+        }
+        &.active a {
+            color: $primary;
+        }
+    }
+}
