@@ -60,7 +60,6 @@ const pages = () => glob.sync(htmlGlob)
         const order = pageOrder();
         return order[a[0]] - order[b[0]];
     });
-console.log(pages());
 
 const html = () => {
     return gulp.src(htmlGlob)
@@ -112,7 +111,10 @@ const inline = () => {
 
 const minifyHTML = () => {
     return gulp.src('dist/**/*.html')
-        .pipe(htmlmin({ collapseWhitespace: true }))
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            removeComments: true,
+        }))
         .pipe(gulp.dest('dist'));
 };
 
