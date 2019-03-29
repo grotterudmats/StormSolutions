@@ -15,6 +15,8 @@ const imagemin = require('gulp-imagemin');
 const uglify = require('gulp-uglify');
 const pipeline = require('readable-stream').pipeline;
 const embedSvg = require('gulp-embed-svg');
+const babel = require('gulp-babel');
+const webpack = require('webpack-stream');
 
 const server = browserSync.create();
 
@@ -150,18 +152,21 @@ const images = () => {
 };
 
 const scripts = () => {
-    return gulp.src('src/**/*.js')
+    return gulp.src('src/js/*.js')
+        .pipe(babel({
+            presets: ['@babel/preset-env']
+        }))
         .pipe(uglify())
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('dist/js'))
 };
 
 
-const optimize = gulp.series(optimizeImages, inlineSVG, optimizeCSS, scripts, inline, minifyHTML, deleteCSS);
+const optimize = gulp.series(optimizeImages, inlineSVG, optimizeCSS, inline, minifyHTML, deleteCSS);
 
 const clean = () => del(['dist']);
 
-const watch = () => gulp.watch('./src/**/*.*', gulp.series(images, sass, html, reload));
+const watch = () => gulp.watch('./src/**/*.*', gulp.series(images, scripts, sass, html, reload));
 
 
-exports.default = gulp.series(clean, sass, images, html, serve, watch);
-exports.build = gulp.series(clean, sass, html, optimize);
+exports.default = gulp.series(clean, sass, scripts, images, html, serve, watch);
+exports.build = gulp.series(clean, sass, scripts, html, optimize);
