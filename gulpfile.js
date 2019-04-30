@@ -141,14 +141,20 @@ const minifyHTML = () => {
 };
 
 const optimizeImages = () => {
-    return gulp.src('src/img/*')
+    return gulp.src([
+      'src/img/*',
+      'src/img/*/*',
+      ])
         .pipe(imagemin())
         .pipe(gulp.dest('dist/img'))
 };
 
 const images = () => {
-    return gulp.src('src/img/*')
-        .pipe(gulp.dest('dist/img'))
+    return gulp.src([
+      'src/img/*',
+      'src/img/*/*',
+      ])
+      .pipe(gulp.dest('dist/img'))
 };
 
 const scripts = () => {
