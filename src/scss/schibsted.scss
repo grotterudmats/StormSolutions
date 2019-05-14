@@ -66,23 +66,23 @@ body {
 
 
 .pres-topbanner {
-  margin-bottom: 50px;
-  position: absolute;
-  top: 0;
+  margin-bottom: 20px;
+  position: relative;
+  margin-top: -20px;
   img, svg {
     max-width: 50px;
     display: inline-block !important;
   }
   span {
-    display: block !important;
+      display: block !important;
     width: auto !important;
     text-align: center;
     color: #fff !important;
     letter-spacing: 2px;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
-      font-family: "Josefin Sans";
-    margin-top: 25px;
+    font-family: "Josefin Sans";
+    margin-top: 15px;
     &:last-of-type {
       text-align: center;
     }
