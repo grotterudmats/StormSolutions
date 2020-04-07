@@ -1,0 +1,90 @@
+$main: #002c43;
+$main-light: #043f5e;
+$main-lighter: #115173;
+$yellow: #fed700;
+
+
+body {
+  background: #fff !important;
+  background-color: #fff !important;
+}
+
+#menu {
+    display: none;
+  }
+
+#pres {
+  
+}
+
+.wrapper .row .image-col {
+  flex: 0 0 25%;
+    max-width: 25%;
+  @media (max-width: 767px) {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.wrapper[data-wsb-uuid="gallery-ff6dd4eddc5b"][data-wsb-template="text_under"] .row .image-col .image-container>.image-0 {
+  background-image: url(../img/pres/stormcraft.jpeg) !important;
+}
+
+.wrapper[data-wsb-uuid="image-3e1a85e79879"][data-wsb-template="large_image"] .image-wrapper {
+  background-image: url(../img/pres/stormconnect.jpeg) !important;
+}
+
+.wrapper[data-wsb-uuid="gallery-2ad5c9b4e86d"][data-wsb-template="text_under"] .row .image-col .image-container>.image-0 {
+  background-image: url(../img/pres/stormconnect1.jpeg) !important;
+}
+
+.wrapper[data-wsb-uuid="gallery-704e8190be0f"][data-wsb-template="text_under"] .row .image-col .image-container>.image-0 {
+  background-image: url(../img/pres/storminsights.jpeg) !important;
+}
+
+.wrapper[data-wsb-uuid="image-b9b7fa6aa296"][data-wsb-template="large_image"], .wrapper[data-wsb-uuid="image-3e1a85e79879"][data-wsb-template="large_image"], .wrapper[data-wsb-uuid="image-1a68bee2c6da"][data-wsb-template="large_image"] {
+  height: auto !important;
+  min-height: 330px !important;
+  margin-top: 120px !important;
+  @media (max-width: 767px) {
+    min-height: 250px !important;
+  }
+}
+
+.wrapper[data-wsb-uuid="image-b9b7fa6aa296"][data-wsb-template="large_image"] .box .heading>span>span {
+  color: #da5f3d !important;
+}
+
+.wrapper[data-wsb-uuid="image-3e1a85e79879"][data-wsb-template="large_image"] .box .heading>span>span {
+  color: #22888c !important;
+}
+
+.wrapper[data-wsb-uuid="image-1a68bee2c6da"][data-wsb-template="large_image"] .box .heading>span>span {
+  color: #6978ae !important;
+}
+
+
+.pres-topbanner {
+  margin-bottom: 20px;
+  position: relative;
+  margin-top: -20px;
+  img, svg {
+    max-width: 50px;
+    display: inline-block !important;
+  }
+  span {
+      display: block !important;
+    width: auto !important;
+    text-align: center;
+    color: #fff !important;
+    letter-spacing: 2px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Josefin Sans";
+    margin-top: 15px;
+    &:last-of-type {
+      text-align: center;
+    }
+  }
+}
