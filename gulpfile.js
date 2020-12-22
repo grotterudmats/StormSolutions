@@ -157,6 +157,14 @@ const images = () => {
       .pipe(gulp.dest('dist/img'))
 };
 
+const fonts = () => {
+    return gulp.src([
+      'src/fonts/*',
+      'src/fonts/*/*',
+      ])
+      .pipe(gulp.dest('dist/fonts'))
+};
+
 const scripts = () => {
     return gulp.src('src/js/*.js')
         .pipe(babel({
@@ -171,8 +179,9 @@ const optimize = gulp.series(optimizeImages, inlineSVG, optimizeCSS, inline, min
 
 const clean = () => del(['dist']);
 
-const watch = () => gulp.watch('./src/**/*.*', gulp.series(images, scripts, sass, html, reload));
+const watch = () => gulp.watch('./src/**/*.*', gulp.series(images, fonts, scripts, sass, html, reload));
 
-
+gulp.task('default', gulp.series(clean, sass, scripts, images, html, serve, watch));
+gulp.task('build', gulp.series(clean, sass, scripts, html, optimize));
 exports.default = gulp.series(clean, sass, scripts, images, html, serve, watch);
 exports.build = gulp.series(clean, sass, scripts, html, optimize);
