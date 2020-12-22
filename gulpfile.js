@@ -181,7 +181,7 @@ const clean = () => del(['dist']);
 
 const watch = () => gulp.watch('./src/**/*.*', gulp.series(images, fonts, scripts, sass, html, reload));
 
-gulp.task('default', gulp.series(clean, sass, scripts, images, html, serve, watch));
+gulp.task('default', gulp.series(clean, sass, scripts, images, fonts, html, serve, watch));
 gulp.task('build', gulp.series(clean, sass, scripts, html, optimize));
 exports.default = gulp.series(clean, sass, scripts, images, html, serve, watch);
 exports.build = gulp.series(clean, sass, scripts, html, optimize);
