@@ -160,7 +160,7 @@ const images = () => {
 const fonts = () => {
     return gulp.src([
       'src/fonts/*',
-      'src/fonts/*/*',
+      'src/fonts/**/*.*',
       ])
       .pipe(gulp.dest('dist/fonts'))
 };
