@@ -1,0 +1,445 @@
+@import "vars.scss";
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+:focus {
+    outline: 0;
+}
+
+body {
+  height: 100vh;
+  display: block;
+  background-color: $back;
+  padding-top: 120px;
+  font-family: $heading;
+  font-weight: 400;
+  color: $color;
+}
+h1,h2,h3,h4,h5,h6,p {
+  margin: 0;
+}
+h1 {
+  font-weight: 200;
+  margin-bottom: 24px;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+i {
+
+}
+button {
+  user-select: none;
+  padding: 12px 24px;
+  color: $color;
+  outline: 0;
+  border: 0;
+  background-color: $back;
+  box-shadow: $shadow, $shadow-inset-empty;
+  letter-spacing: .75px;
+  border-radius: 8px;
+  transition: all .3s ease;
+  &:hover {
+    background-color: lighten($back, 1%);
+    border-color: lighten($back, 1%);
+  }
+  &:focus {
+    outline: 0;
+  }
+  &:active {
+    outline: 0;
+    box-shadow: $s-shadow, $s-shadow-inset;
+  }
+  &.border {
+    border: 3px solid $back;
+  }
+  &.linear {
+    box-shadow: $shadow, $shadow-inset;
+    transition: all .12s ease-out;
+  }
+  &.selected {
+    box-shadow: $shadow, $s-shadow-inset;
+    transition: all .12s ease-out;
+  }
+  &.selected-inset {
+    box-shadow: $shadow-empty, $shadow-inset;
+    transition: all .12s ease-out;
+  }
+}
+.button-spread {
+  button {
+    margin-right: 12px;
+  }
+}
+.container {
+  margin: 0 auto;
+}
+.full-width {
+  width: 100vw;
+  margin-left: calc((100% - 100vw) / 2);
+}
+
+.menu {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9999;
+  pointer-events: none;
+  .trigger {
+    pointer-events: all;
+    margin-top: 50px;
+    height: 50px;
+    width: 50px;
+    border-radius: 14px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    &:hover {
+      transform: translateY(12px);
+    }
+    i {
+      height: 2px;
+      background-color: $shade-dark;
+      width: 100%;
+      position: relative;
+      &:before, &:after {
+        content: '';
+        height: 2px;
+        width: 100%;
+        position: absolute;
+        background-color: $shade-dark;
+      }
+      &:before {
+        top: -6px;
+      }
+      &:after {
+        bottom: -6px;
+      }
+    }
+  }
+  ul {
+      display: none;
+    }
+}
+
+.radiogroup {
+  padding: 48px 64px;
+  border-radius: 16px;
+  background: $back;
+  box-shadow: $shadow-inset;
+  .wrapper {
+    margin-bottom: 24px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.state {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  color: #394a56;
+}
+
+.text {
+  margin-left: 16px;
+  opacity: 1;
+  transition: opacity .2s linear, transform .2s ease-out;
+  color: $color;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.indicator {
+  position: relative;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  box-shadow:
+    -8px -4px 8px 0px $shade-light,
+    8px 4px 12px 0px $shade-dark;
+  overflow: hidden;
+}
+
+.indicator::before,
+.indicator::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  height: 80%;
+  width: 80%;
+  border-radius: 50%;
+}
+
+.indicator::before {
+  box-shadow:
+    -4px -2px 4px 0px $shade-dark,
+    4px 2px 8px 0px $shade-light;
+}
+
+.indicator::after {
+  background-color: $back;
+  box-shadow:
+    -4px -2px 4px 0px $shade-light,
+    4px 2px 8px 0px $shade-dark;
+  transform: scale3d(1, 1, 1);
+  transition: opacity .25s ease-in-out, transform .25s ease-in-out;
+}
+
+.state:checked ~ .label .indicator::after {
+  transform: scale3d(.975, .975, 1) translate3d(0, 10%, 0);
+  opacity: 0;
+}
+
+.state:focus ~ .label .text {
+  transform: translate3d(8px, 0, 0);
+  opacity: 1;
+}
+
+.label:hover .text {
+  opacity: 1;
+}
+
+$dot-s: 5;
+$dot-size: calc(#{$dot-s} * 10px);
+$dot-vw: 10px;
+$dot-vh: 50px;
+#dot_mania {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  padding: 12px;
+  .dot-row {
+    display: flex;
+    flex-direction: row;
+    .dot {
+      &:nth-child(even) {
+        margin-top: calc((#{$dot-vh} / 2) + (#{$dot-size / 2}));
+        margin-bottom: 0px;
+      }
+
+    }
+  }
+}
+.dot {
+  user-select: none;
+  position: relative;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: $back;
+
+  margin-right: $dot-vw;
+  margin-bottom: $dot-vh;
+
+  height: $dot-size;
+  min-width: $dot-size;
+  width: $dot-size;
+  box-shadow: $shadow, $shadow-inset-empty;
+
+  transition: all .12s linear;
+  cursor: pointer;
+  &:hover {
+    box-shadow: $shadow, $xs-shadow-inset;
+  }
+  &:active {
+    box-shadow: $s-shadow, $s-shadow-inset;
+  }
+  &.linear {
+    box-shadow: $shadow, $shadow-inset;
+    transition: all .12s ease-out;
+  }
+  &.selected {
+    box-shadow: $shadow, $s-shadow-inset;
+    transition: all .12s ease-out;
+  }
+  &.selected-inset {
+    box-shadow: $shadow-empty, $shadow-inset;
+    transition: all .12s ease-out;
+  }
+}
+.s-plate {
+  box-shadow: $s-plate-shadow;
+  background: $plate-back;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all .44s ease;
+  &:hover {
+    box-shadow: $s-plate-shadow-hover;
+    transform: translateY(12px);
+  }
+}
+.plate {
+  box-shadow: $plate-shadow;
+  background: $plate-back;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all .44s ease;
+  &:hover {
+    box-shadow: $plate-shadow-hover;
+    transform: translateY(12px);
+  }
+}
+
+.plates {
+  padding: 120px;
+  .plate {
+    height: 100px;
+    width: 100%;
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+    .icon-holder {
+      background-color: $back;
+      height: 50px;
+      width: 50px;
+      margin-right: 20px;
+      box-shadow: $shadow;
+      border-radius: 10px;
+    }
+    p {
+      margin: 0;
+    }
+  }
+}
+.full-width .centerSlick {
+  .slick-arrow {
+    &.slick-prev {
+      left: 24px;
+    }
+    &.slick-next {
+      right: 24px;
+    }
+  }
+}
+.centerSlick {
+  &.slick-dotted {
+    margin-bottom: 100px;
+  }
+  .slick-arrow {
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    margin: 0;
+    padding: 0;
+    z-index: 123;
+    &.slick-prev {
+      left: auto;
+      right: calc(100% + 24px);
+    }
+    &.slick-next {
+      right: auto;
+      left: calc(100% + 24px);
+    }
+  }
+  .slick-list {
+    .slick-track {
+      .slick-slide {
+        .slick-content {
+          height: 450px;
+          background-color: $back;
+          margin: 60px 30px;
+          box-shadow: $shadow;
+          border-radius: 12px;
+          transition: all .35s ease;
+          transition-delay: 0s;
+          overflow: auto;
+          cursor: pointer;
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        &.slick-active {
+          .slick-content {
+
+          }
+        }
+        &.slick-center {
+          .slick-content {
+            transition-delay: .5s;
+            transform: scale(1.175);
+          }
+        }
+      }
+    }
+  }
+  .slick-dots {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    li {
+      margin: 12px;
+      button {
+        box-shadow: $plate-shadow;
+        background: $plate-back;
+        font-size: 0;
+        height: 12px;
+        width: 12px;
+        padding: 0;
+        border-radius: 50%;
+      }
+    }
+  }
+  &.plateSlick {
+    .slick-list .slick-track .slick-slide .slick-content {
+      box-shadow: $plate-shadow;
+      background: $plate-back;
+      margin: 60px 30px 90px 30px;
+    }
+  }
+  &.plateArrows {
+    .slick-arrow {
+      @extend .s-plate;
+    }
+  }
+  &.fadeSlick {
+    .slick-list {
+      &:before, &:after {
+        content: '';
+        position: absolute;
+        width: calc(100% / 3);
+        left: 0;
+        top: 0; bottom: 0;
+        background-color: #000;
+        background: linear-gradient(90deg, $back, transparent);
+        z-index: 1;
+      }
+      &:after {
+        left: auto;
+        right: 0;
+        background: linear-gradient(-90deg, $back, transparent);
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: darken($back, 2%);
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,9 @@
+/* Ostrich Sans */
+
+@font-face {
+	font-family: 'Bebas';
+	src: url('../BebasNeue.otf');
+	src: local('☺'), url('../BebasNeue.otf') format('woff'), url('../BebasNeue.otf');
+	font-weight: 300;
+	font-style: normal;
+}

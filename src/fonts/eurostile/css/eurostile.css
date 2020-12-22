@@ -1,0 +1,59 @@
+/* Ostrich Sans */
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../Montserrat-Hairline.otf');
+	src: local('☺'), url('../Montserrat-Hairline.otf') format('woff'), url('../Montserrat-Hairline.otf');
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../Montserrat-UltraLight.otf');
+	src: local('☺'), url('../Montserrat-UltraLight.otf') format('woff'), url('../Montserrat-UltraLight.otf');
+	font-weight: 200;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../Montserrat-Light.otf');
+	src: local('☺'), url('../Montserrat-Light.otf') format('woff'), url('../Montserrat-Light.otf');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../Montserrat-Regular.otf');
+	src: local('☺'), url('../Montserrat-Regular.otf') format('woff'), url('../Montserrat-Regular.otf');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../Montserrat-SemiBold.otf');
+	src: local('☺'), url('../Montserrat-SemiBold.otf') format('woff'), url('../Montserrat-SemiBold.otf');
+	font-weight: 500;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../Montserrat-Bold.otf');
+	src: local('☺'), url('../Montserrat-Bold.otf') format('woff'), url('../Montserrat-Bold.otf');
+	font-weight: 600;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../Montserrat-ExtraBold.otf');
+	src: local('☺'), url('../Montserrat-ExtraBold.otf') format('woff'), url('../Montserrat-ExtraBold.otf');
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../Montserrat-Black.otf');
+	src: local('☺'), url('../Montserrat-Black.otf') format('woff'), url('../Montserrat-Black.otf');
+	font-weight: 800;
+	font-style: normal;
+}

@@ -1,0 +1,133 @@
+$back: #ecf0f3;
+$border: #bbc6d8;
+$color: #a2b0c6;
+$shade-dark: #d1d9e6;
+$shade-light: #ffffff;
+$grad-light: #f2f5f7;
+
+/*
+$back: #191919;
+$border: #333333;
+$color: #444444;
+$shade-dark: #0e0e0e;
+$shade-light: #222;
+$grad-light: #1c1c1c;
+*/
+
+$sw-xsP: 1.5px;
+$sw-xsN: -1.5px;
+$sw-xsB: 5px;
+
+$sw-sP: 4px;
+$sw-sN: -4px;
+$sw-sB: 8px;
+
+$sw-P: 6px;
+$sw-N: -6px;
+$sw-B: 10px;
+
+/* shadows */
+$shadow: $sw-P $sw-P $sw-B 0px $shade-dark, $sw-N $sw-N $sw-B 0px $shade-light;
+$shadow-empty: 0px 0px 0px 0px $shade-dark, 0px 0px 0px 0px $shade-light;
+$shadow-inset: $sw-P $sw-P $sw-B 0px $shade-dark inset, $sw-N $sw-N $sw-B 0px $shade-light inset;
+$shadow-inset-empty: 0px 0px 0px 0px $shade-dark inset, 0px 0px 0px 0px $shade-light inset;
+
+$s-shadow: $sw-sP $sw-sP $sw-sB 0px $shade-dark, $sw-sN $sw-sN $sw-sB 0px $shade-light;
+$s-shadow-empty: 0px 0px 0px 0px $shade-dark, 0px 0px 0px 0px $shade-light;
+$s-shadow-inset: $sw-sP $sw-sP $sw-sB 0px $shade-dark inset, $sw-sN $sw-sN $sw-sB 0px $shade-light inset;
+$s-shadow-inset-empty: 0px 0px 0px 0px $shade-dark inset, 0px 0px 0px 0px $shade-light inset;
+
+$xs-shadow: $sw-xsP $sw-xsP $sw-xsB 0px $shade-dark, $sw-xsN $sw-xsN $sw-xsB 0px $shade-light;
+$xs-shadow-empty: 0px 0px 0px 0px $shade-dark, 0px 0px 0px 0px $shade-light;
+$xs-shadow-inset: $sw-xsP $sw-xsP $sw-xsB 0px $shade-dark inset, $sw-xsN $sw-xsN $sw-xsB 0px $shade-light inset;
+$xs-shadow-inset-empty: 0px 0px 0px 0px $shade-dark inset, 0px 0px 0px 0px $shade-light inset;
+
+/* plate shadow */
+$plate-shadow: 0px 5px 0px 0px $shade-dark, 0px 40px 30px -20px $shade-dark;
+$plate-shadow-hover: 0px 5px 0px 0px $shade-dark, 0px 30px 20px -10px $shade-dark;
+
+$s-plate-shadow: 0px 5px 0px 0px $shade-dark, 0px 24px 20px -8px $shade-dark;
+$s-plate-shadow-hover: 0px 5px 0px 0px $shade-dark, 0px 12px 20px -2px $shade-dark;
+
+$plate-back: linear-gradient(0deg, $back, $grad-light);
+
+$heading: "Storm";
+$description: "Storm";
+
+.m-6 {
+  margin: 6px;
+} .m-12 {
+  margin: 12px;
+} .m-18 {
+  margin: 18px;
+} .m-24 {
+  margin: 24px;
+}
+.mt-6 {
+  margin-top: 6px;
+} .mt-12 {
+  margin-top: 12px;
+} .mt-18 {
+  margin-top: 18px;
+} .mt-24 {
+  margin-top: 24px;
+}
+.mr-6 {
+  margin-right: 6px;
+} .mr-12 {
+  margin-right: 12px;
+} .mr-18 {
+  margin-right: 18px;
+} .mr-24 {
+  margin-right: 24px;
+}
+.mb-6 {
+  margin-bottom: 6px;
+} .mb-12 {
+  margin-bottom: 12px;
+} .mb-18 {
+  margin-bottom: 18px;
+} .mb-24 {
+  margin-bottom: 24px;
+}
+.ml-6 {
+  margin-left: 6px;
+} .ml-12 {
+  margin-left: 12px;
+} .ml-18 {
+  margin-left: 18px;
+} .ml-24 {
+  margin-left: 24px;
+}
+
+.sbox {
+  box-shadow: $shadow;
+  border-radius: 12px;
+  background-color: $back;
+}
+.s-sbox {
+  box-shadow: $s-shadow;
+  border-radius: 12px;
+  background-color: $back;
+}
+.xs-sbox {
+  box-shadow: $xs-shadow;
+  border-radius: 12px;
+  background-color: $back;
+}
+
+.sbox-inset {
+  box-shadow: $shadow-inset;
+  border-radius: 12px;
+  background-color: $back;
+}
+.s-sbox-inset {
+  box-shadow: $s-shadow-inset;
+  border-radius: 12px;
+  background-color: $back;
+}
+.xs-sbox-inset {
+  box-shadow: $xs-shadow-inset;
+  border-radius: 12px;
+  background-color: $back;
+}

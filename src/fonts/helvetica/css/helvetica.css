@@ -1,0 +1,49 @@
+/* Helvetica */
+
+@font-face {
+	font-family: 'Storm';
+	src: url('../helvetica-200.ttf');
+	src: local('☺'), url('../helvetica-200.ttf') format('ttf'), url('../helvetica-200.ttf');
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Storm';
+	src: url('../helvetica-300.ttf');
+	src: local('☺'), url('../helvetica-300.ttf') format('ttf'), url('../helvetica-300.ttf');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Storm';
+	src: url('../helvetica-400.ttf');
+	src: local('☺'), url('../helvetica-400.ttf') format('ttf'), url('../helvetica-400.ttf');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Storm';
+	src: url('../helvetica-500.ttf');
+	src: local('☺'), url('../helvetica-500.ttf') format('ttf'), url('../helvetica-500.ttf');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Storm';
+	src: url('../helvetica-600.ttf');
+	src: local('☺'), url('../helvetica-600.ttf') format('ttf'), url('../helvetica-600.ttf');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Storm';
+	src: url('../helvetica-700.ttf');
+	src: local('☺'), url('../helvetica-700.ttf') format('ttf'), url('../helvetica-700.ttf');
+	font-weight: 700;
+	font-style: normal;
+}

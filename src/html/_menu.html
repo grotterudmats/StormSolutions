@@ -1,10 +1,10 @@
 <div class="container" id="menu">
-<ul style="display:none;">
-  <img id="logo" src="img/rektangel.svg" />
-  {% for page, url, title in pages %}
-  <li {% if page == path %} class="active" {% endif %}>
-    <a href="/{{url}}">{{title}}</a>
-  </li>
-  {% endfor %}
-</ul>
+	<ul style="display:none;">
+	  <img id="logo" src="img/rektangel.svg" />
+	  {% for page, url, title in pages %}
+	  <li {% if page == path %} class="active" {% endif %}>
+	    <a href="/{{url}}">{{title}}</a>
+	  </li>
+	  {% endfor %}
+	</ul>
 </div>

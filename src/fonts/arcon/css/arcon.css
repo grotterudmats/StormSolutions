@@ -1,0 +1,15 @@
+/* Ostrich Sans */
+
+@font-face {
+	font-family: 'Arcon';
+	src: url('../Arcon-Regular.otf');
+	src: local('☺'), url('../Arcon-Regular.otf') format('woff'), url('../Arcon-Regular.otf');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Arcon Round';
+	src: url('../Arcon-Rounded-Regular.otf');
+	src: local('☺'), url('../Arcon-Rounded-Regular.otf') format('woff'), url('../Arcon-Rounded-Regular.otf');
+	font-style: normal;
+}
