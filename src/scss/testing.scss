@@ -131,6 +131,10 @@ $dot-vh: 50px;
   height: $dot-size;
   min-width: $dot-size;
   width: $dot-size;
+
+  text-align: center;
+  line-height: $dot-size;
+  
   box-shadow: $shadow, $shadow-inset-empty;
 
   transition: all .12s linear, transform .12s linear;
