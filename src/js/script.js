@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     var $dot;
     for (var i = 0; i < 50; i++) {
-        $dot = $('<span class="dot select-inset" />');
+        $dot = $('<span class="dot push select-inset" />');
         $("#dot_mania .dot-row").append($dot);
     }
 
@@ -69,5 +69,11 @@ $(document).ready(function(){
     $(".slick-actions button").click(function() {
     	var slickClass = $(this).text();
         $(".centerSlick").toggleClass(slickClass);
+        $(window).trigger('resize');
+    });
+    $(".slick-actions .slick-width").click(function() {
+    	var slickClass = $(this).text();
+        $(".centerSlick").parent("section").toggleClass(slickClass);
+        $(window).trigger('resize');
     });
 });
