@@ -115,7 +115,10 @@ const minifyCSS = () => {
 };
 
 const combineCSS = () => {
-  return gulp.src("./dist/**/*.html").pipe(useref()).pipe(gulp.dest("./dist"));
+  return gulp
+    .src("./dist/**/*.html")
+    .pipe(useref({ allowEmpty: true }))
+    .pipe(gulp.dest("./dist"));
 };
 
 const deleteCSS = () => del(["dist/css"]);
