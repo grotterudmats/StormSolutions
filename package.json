@@ -23,7 +23,7 @@
     "gulp-inline-source": "^4.0.0",
     "gulp-nunjucks-render": "^2.2.3",
     "gulp-postcss": "^8.0.0",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^6.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-useref": "^3.1.6",
     "postcss-uncss": "^0.16.1",
