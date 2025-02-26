@@ -116,8 +116,8 @@ const minifyCSS = () => {
 
 const combineCSS = () => {
   return gulp
-    .src("./dist/**/*.html")
-    .pipe(useref({ allowEmpty: true }))
+    .src("./dist/**/*.html", { allowEmpty: true })
+    .pipe(useref())
     .pipe(gulp.dest("./dist"));
 };
 
