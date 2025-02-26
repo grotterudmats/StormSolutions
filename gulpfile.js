@@ -22,9 +22,9 @@ const server = browserSync.create();
 
 const sass = () => {
   return gulp
-    .src(["src/scss/*.scss", "!src/scss/_*.scss"])
+    .src(["./src/scss/*.scss", "!./src/scss/_*.scss"])
     .pipe(gulpSass())
-    .pipe(gulp.dest("dist/css"));
+    .pipe(gulp.dest("./dist/css"));
 };
 
 const reload = (done) => {
@@ -102,7 +102,7 @@ const html = () => {
 const minifyCSS = () => {
   const plugins = [
     uncss({
-      html: ["dist/**/*.html"],
+      html: ["./dist/**/*.html"],
     }),
     require("cssnano")({
       preset: "advanced",
@@ -121,7 +121,7 @@ const combineCSS = () => {
     .pipe(gulp.dest("./dist"));
 };
 
-const deleteCSS = () => del(["dist/css"]);
+const deleteCSS = () => del(["./dist/css"]);
 
 const optimizeCSS = gulp.series(combineCSS, minifyCSS);
 
@@ -150,7 +150,7 @@ const inlineSVG = () => {
 
 const minifyHTML = () => {
   return gulp
-    .src("dist/**/*.html")
+    .src("./dist/**/*.html")
     .pipe(
       htmlmin({
         collapseWhitespace: true,
@@ -168,13 +168,15 @@ const optimizeImages = () => {
 };
 
 const images = () => {
-  return gulp.src(["src/img/*", "src/img/*/*"]).pipe(gulp.dest("dist/img"));
+  return gulp
+    .src(["./src/img/*", "./src/img/*/*"])
+    .pipe(gulp.dest("./dist/img"));
 };
 
 const fonts = () => {
   return gulp
-    .src(["src/fonts/*", "src/fonts/**/*.*"])
-    .pipe(gulp.dest("dist/fonts"));
+    .src(["./src/fonts/*", "./src/fonts/**/*.*"])
+    .pipe(gulp.dest("./dist/fonts"));
 };
 
 const scripts = () => {
@@ -186,7 +188,7 @@ const scripts = () => {
       }),
     )
     .pipe(uglify())
-    .pipe(gulp.dest("dist/js"));
+    .pipe(gulp.dest("./dist/js"));
 };
 
 const optimize = gulp.series(
